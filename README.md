@@ -1,8 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Sgaliley/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Sgaliley/python-project-50/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/b9a35673e6737e98d91c/maintainability)](https://codeclimate.com/github/Sgaliley/python-project-50/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/df66c0cbbeca7d822f23/test_coverage)](https://codeclimate.com/github/hexlet-boilerplates/python-package/test_coverage)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/4fab0988a10920c3d66d/maintainability)](https://codeclimate.com/github/Sgaliley/python-project-50/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4fab0988a10920c3d66d/test_coverage)](https://codeclimate.com/github/Sgaliley/python-project-50/test_coverage)
 ## Описание
 Вычислитель отличий – программа, которая определяет разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн-сервисов, например, jsondiff. Подобный механизм, например, используется при выводе тестов или при автоматическом отслеживании изменений в конфигурационных файлах.
 
