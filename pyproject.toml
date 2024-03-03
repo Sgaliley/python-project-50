@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "hexlet-code"
+version = "0.1.0"
+description = "Вычислитель отличий – программа, которая определяет разницу между двумя структурами данных."
+authors = ["Сергей Миргалеев <saurit.galiley@yandex.ru>"]
+readme = "README.md"
+repository = "https://github.com/Sgaliley/python-project-50/"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+]
+packages = [
+  { include = "gendiff" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^8.0.2"
+flake8 = "^7.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
