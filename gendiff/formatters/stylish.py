@@ -1,6 +1,3 @@
-import json
-
-
 def format_value(value, indent):
     if isinstance(value, dict):
         lines = ['{']

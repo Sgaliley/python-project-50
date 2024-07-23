@@ -11,13 +11,9 @@ def test_generate_diff_stylish_12_json():
     data_2 = 'tests/fixtures/file2.json'
     expected_stylish_12 = open('tests/fixtures/test_stylish_12.txt').read()
 
-    parsed_data1 = parse_file(data_1)
-    parsed_data2 = parse_file(data_2)
+    diff = generate_diff(data_1, data_2)
 
-    diff = generate_diff(parsed_data1, parsed_data2)
-    formatted_diff = format_stylish(diff).strip()
-
-    assert formatted_diff == expected_stylish_12
+    assert diff == expected_stylish_12
 
 
 def test_generate_diff_stylish_12_yml():
@@ -25,13 +21,9 @@ def test_generate_diff_stylish_12_yml():
     data_2 = 'tests/fixtures/file2.yml'
     expected_stylish_12 = open('tests/fixtures/test_stylish_12.txt').read()
 
-    parsed_data1 = parse_file(data_1)
-    parsed_data2 = parse_file(data_2)
+    diff = generate_diff(data_1, data_2, 'stylish')
 
-    diff = generate_diff(parsed_data1, parsed_data2)
-    formatted_diff = format_stylish(diff).strip()
-
-    assert formatted_diff == expected_stylish_12
+    assert diff == expected_stylish_12
 
 
 def test_generate_diff_stylish_34():
@@ -39,13 +31,9 @@ def test_generate_diff_stylish_34():
     data_4 = 'tests/fixtures/file4.json'
     expected_stylish_34 = open('tests/fixtures/test_stylish_34.txt').read()
 
-    parsed_data3 = parse_file(data_3)
-    parsed_data4 = parse_file(data_4)
+    diff = generate_diff(data_3, data_4, 'stylish')
 
-    diff = generate_diff(parsed_data3, parsed_data4)
-    formatted_diff = format_stylish(diff).strip()
-
-    assert formatted_diff == expected_stylish_34
+    assert diff == expected_stylish_34
 
 
 def test_generate_diff_stylish_34_yml():
@@ -53,13 +41,9 @@ def test_generate_diff_stylish_34_yml():
     data_4 = 'tests/fixtures/file4.yml'
     expected_stylish_34 = open('tests/fixtures/test_stylish_34.txt').read()
 
-    parsed_data3 = parse_file(data_3)
-    parsed_data4 = parse_file(data_4)
+    diff = generate_diff(data_3, data_4, 'stylish')
 
-    diff = generate_diff(parsed_data3, parsed_data4)
-    formatted_diff = format_stylish(diff).strip()
-
-    assert formatted_diff == expected_stylish_34
+    assert diff == expected_stylish_34
 
 
 def test_generate_diff_plain_34():
@@ -67,13 +51,9 @@ def test_generate_diff_plain_34():
     data_4 = 'tests/fixtures/file4.json'
     expected_plain_34 = open('tests/fixtures/test_plain_34.txt').read()
 
-    parsed_data3 = parse_file(data_3)
-    parsed_data4 = parse_file(data_4)
+    diff = generate_diff(data_3, data_4, 'plain')
 
-    diff = generate_diff(parsed_data3, parsed_data4)
-    formatted_diff = format_plain(diff).strip()
-
-    assert formatted_diff == expected_plain_34
+    assert diff == expected_plain_34
 
 
 def test_generate_diff_json_34():
@@ -81,10 +61,6 @@ def test_generate_diff_json_34():
     data_4 = 'tests/fixtures/file4.json'
     expected_json_34 = open('tests/fixtures/test_json_34.txt').read()
 
-    parsed_data3 = parse_file(data_3)
-    parsed_data4 = parse_file(data_4)
+    diff = generate_diff(data_3, data_4, 'json')
 
-    diff = generate_diff(parsed_data3, parsed_data4)
-    formatted_diff = format_json(diff).strip()
-
-    assert formatted_diff == expected_json_34
+    assert diff == expected_json_34
