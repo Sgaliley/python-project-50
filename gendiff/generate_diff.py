@@ -1,29 +1,27 @@
-from gendiff.parse import parse_file
-
-
-def format_value(value):
-    if isinstance(value, bool):
-        return str(value).lower()
-    else:
-        return str(value)
-
-
-def generate_diff(file1, file2):
-    data1 = parse_file(file1)
-    data2 = parse_file(file2)
+def generate_diff(data1, data2):
     diff = {}
 
-    keys_union = set(data1.keys()).union(set(data2.keys()))
+    keys1 = set(data1.keys())
+    keys2 = set(data2.keys())
+    keys_union = sorted(keys1.union(keys2))
 
-    for key in sorted(keys_union):
-        if key in data1 and key not in data2:
-            diff[f'- {key}'] = format_value(data1[key])
-        elif key in data2 and key not in data1:
-            diff[f'+ {key}'] = format_value(data2[key])
-        elif data1[key] != data2[key]:
-            diff[f'- {key}'] = format_value(data1[key])
-            diff[f'+ {key}'] = format_value(data2[key])
+    for key in keys_union:
+        if key in data1 and key not in keys2:
+            diff[key] = {'operation': 'removed', 'old': data1[key]}
+        elif key not in keys1 and key in keys2:
+            diff[key] = {'operation': 'add', 'new': data2[key]}
         else:
-            diff[f'  {key}'] = format_value(data1[key])
-
+            if data1[key] == data2[key]:
+                diff[key] = {'operation': 'same', 'value': data1[key]}
+            elif isinstance(data1[key], dict) and isinstance(data2[key], dict):
+                diff[key] = {
+                    'operation': 'nested',
+                    'value': generate_diff(data1[key], data2[key]),
+                }
+            else:
+                diff[key] = {
+                    'operation': 'changed',
+                    'old': data1[key],
+                    'new': data2[key],
+                }
     return diff

@@ -55,3 +55,15 @@ Python 3.11.0+
 >> make package-install
 
 ```
+Запуск
+```
+>> gendiff -h
+>> gendiff file1.json file2.yml
+>> gendiff -f stylish file3.json file4.yml
+>> gendiff -f plain file3.json file4.yml
+>> gendiff -f json file3.json file4.yml
+```
+
+### Демонстрация Gendiff
+
+[![asciicast](https://asciinema.org/a/UjcJxapaONTMCJEFqvb14B8LQ.svg)](https://asciinema.org/a/UjcJxapaONTMCJEFqvb14B8LQ)

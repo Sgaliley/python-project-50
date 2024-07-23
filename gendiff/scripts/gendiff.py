@@ -3,9 +3,9 @@ from gendiff.cli import gendiff
 
 
 def main():
-    '''Запуск'''
-    gendiff()
+    """Запуск"""
+    print(gendiff())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
