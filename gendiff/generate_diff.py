@@ -3,6 +3,7 @@ from gendiff.formatters.plain import format_plain
 from gendiff.formatters.json import format_json
 from gendiff.parse import parse_file
 
+
 def format_diff(diff, formatter='stylish'):
     formatters = {
         'stylish': format_stylish,
@@ -10,6 +11,7 @@ def format_diff(diff, formatter='stylish'):
         'json': format_json,
     }
     return formatters[formatter](diff)
+
 
 def make_diff(data1, data2):
     diff = {}
