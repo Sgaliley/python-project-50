@@ -1,6 +1,7 @@
 import json
 import yaml
 
+
 def parse(data, format):
     if format.lower() == 'json':
         return json.loads(data)
