@@ -1,8 +1,12 @@
 from gendiff.formatters.stylish import format_stylish
 from gendiff.formatters.plain import format_plain
 from gendiff.formatters.json import format_json
-from gendiff.parse import parse_file
+from gendiff.parse import parse
+from pathlib import Path
 
+def read_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.read(), Path(file_path).suffix.lower()[1:]
 
 def format_diff(diff, formatter='stylish'):
     formatters = {
@@ -41,7 +45,11 @@ def make_diff(data1, data2):
 
 
 def generate_diff(first_file, second_file, formatter='stylish'):
-    data1 = parse_file(first_file)
-    data2 = parse_file(second_file)
+    data1_content, data1_format = read_file(first_file)
+    data2_content, data2_format = read_file(second_file)
+    
+    data1 = parse(data1_content, data1_format)
+    data2 = parse(data2_content, data2_format)
+    
     diff = make_diff(data1, data2)
     return format_diff(diff, formatter)

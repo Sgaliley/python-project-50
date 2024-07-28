@@ -1,16 +1,10 @@
-import yaml
 import json
-from pathlib import Path
+import yaml
 
-
-def parse_file(file_path):
-    file_path = Path(file_path)
-
-    if file_path.suffix.lower() in ('.json',):
-        with open(file_path, 'r') as file:
-            return json.load(file)
-    elif file_path.suffix.lower() in ('.yaml', '.yml'):
-        with open(file_path, 'r') as file:
-            return yaml.safe_load(file)
+def parse(data, format):
+    if format.lower() == 'json':
+        return json.loads(data)
+    elif format.lower() in ('yaml', 'yml'):
+        return yaml.safe_load(data)
     else:
-        raise ValueError('Unsupported file format')
+        raise ValueError('Unsupported data format')
